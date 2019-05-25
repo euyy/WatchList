@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <iostream>
+#include "email.h"
 //#include <unistd.h>
 string name(int i){
     switch (i) {
@@ -222,9 +223,7 @@ void List::refreshWatchList(){
         return;
     }
     else{
-        //对每一个进程
-        //首先把邮件内容保存到文件中，
-        //然后进行发邮件操作
+        sendEmail(emailList);
     }
 }
 

@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        email.cpp \
         main.cpp \
         list.cpp
 
 HEADERS += \
+        email.h \
         list.h \
         msgboxdlg.h \
         processlist.h \
