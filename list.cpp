@@ -223,7 +223,7 @@ void List::refreshWatchList(){
         return;
     }
     else{
-        sendEmail(emailList);
+        //sendEmail(emailList);
     }
 }
 

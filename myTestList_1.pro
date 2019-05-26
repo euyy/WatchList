@@ -32,9 +32,7 @@ SOURCES += \
 HEADERS += \
         email.h \
         list.h \
-        msgboxdlg.h \
-        processlist.h \
-        setting.h
+        processlist.h
 
 FORMS += \
         list.ui
