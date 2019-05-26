@@ -5,7 +5,8 @@
 #include <time.h>
 #include <iostream>
 #include "email.h"
-//#include <unistd.h>
+#include <unistd.h>
+/*
 string name(int i){
     switch (i) {
     case 0:return "aaa";
@@ -43,7 +44,7 @@ int addProcess(pid_t pid,vector<Process>&watchList)
 int saveWatchList(vector<Process>watchList)
 {
     FILE * file;
-    file=fopen("E:\\ProgramData\\QT\\myTestList_1\\watchlist.txt","w");
+    file=fopen("/home/yue/Desktop/QT/myTestList_1/watchlist.txt","w");
     for(size_t i = 0; i < watchList.size(); i++)
     {
         fprintf(file,"%d\n",watchList[i].pid);
@@ -55,14 +56,14 @@ int saveWatchList(vector<Process>watchList)
 int openWatchList(vector<Process> &watchList)
 {
     FILE * file;
-    file=fopen("E:\\ProgramData\\QT\\myTestList_1\\watchList.txt","r");
+    file=fopen("/home/yue/Desktop/QT/myTestList_1/watchlist.txt","r");
     if(file == NULL){
         printf("Open file failed!\n");
     }
     int pid=0;
     watchList.clear();
     srand(time(0));
-    while(fscanf(file,"%d",&pid)!=EOF)
+    while(fscanf(file,"%d\n",&pid)!=EOF)
     {
         Process proc;
         proc.pid=pid;
@@ -90,7 +91,7 @@ int updateWatchList(vector<Process> &watchList,vector<Process> &emailList)
     }
 
     return 0;
-}
+}*/
 
 
 
@@ -223,7 +224,7 @@ void List::refreshWatchList(){
         return;
     }
     else{
-        //sendEmail(emailList);
+        sendEmail(emailList);
     }
 }
 
@@ -434,7 +435,11 @@ void List::on_addBtn_clicked()
 {
     bool ok;
     int pid = ui->pidEdit->text().toInt(&ok,10);
-    addProcess(pid,watchList);          //添加ID为pid的进程
+    //添加ID为pid的进程
+    if(addProcess(pid,watchList)!=0){
+        printf("Error! %d Process has existed in WatchList or does not exist.\n");
+        return;
+    }
 
     ui->tableWidget->setSortingEnabled(false);      //更改列表时，禁止排序，以防数据显示错误
     //界面列表中添加一行，并填写添加进程的名称和ID

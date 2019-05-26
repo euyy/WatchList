@@ -27,12 +27,15 @@ CONFIG += c++11
 SOURCES += \
         email.cpp \
         main.cpp \
-        list.cpp
+        list.cpp \
+        processList.cpp \
+        watchList.cpp
 
 HEADERS += \
         email.h \
         list.h \
-        processlist.h
+        processList.h \
+        watchList.h
 
 FORMS += \
         list.ui
@@ -43,4 +46,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    watchlist.txt
+    emailIn.txt \
+    emailSend.py \
+    watchList.txt

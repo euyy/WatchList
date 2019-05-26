@@ -6,9 +6,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h>
 #include <vector>
-#include "processlist.h"
+#include "watchList.h"
 #define sz_type unsigned int
 
 namespace Ui {
